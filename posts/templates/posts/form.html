@@ -1,0 +1,19 @@
+{% extends "base.html" %} {% block content %}
+<br />
+<h1 style="margin-left: 40px">Add Event</h1>
+<br />
+{% if submitted %}
+<h3 style="margin-left: 40px">Your Form is Submitted</h3>
+{% else %}
+<div class="form-group">
+  <form
+    method="POST"
+    style="margin-left: 40px; margin-right: 100px"
+    enctype="multipart/form-data"
+    action=""
+  >
+    {% csrf_token %} {{ form.as_p }}
+    <input type="submit" class="btn btn-dark" value="Submit" />
+  </form>
+</div>
+{% endif %} {% endblock %}

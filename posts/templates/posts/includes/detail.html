@@ -1,0 +1,37 @@
+{% load static %}
+
+<div class="card mb-3 rounded shadow-lg p-3 mb-5 bg-body rounded " style="max-width: 340px;  margin-left: auto;
+  margin-right: auto;">
+  <div class="row g-0">
+    <div lass="col-md-4">
+      {% if obj.image %}
+      <img
+        class="img-fluid rounded-start"
+        src="{{obj.image.url}}"
+        alt="IMAGE"
+      />
+      {% endif %}
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h2 class="fs-4">{{obj.title}}</h2>
+
+        <p class="card-text">{{obj.location}}</p>
+        <p class="card-text">{{obj.date}}</p>
+        <p class="card-text">{{obj.time}}</p>
+        <form
+          action="{% url 'posts:like-post' %}"
+          method="POST"
+        >
+          {% csrf_token %}
+          <input type="hidden" name="post_id" value="{{obj.id}}" />
+          {% if user not in obj.Liked.all %}
+          <button  class="btn btn-outline-danger"  type="submit">Like</button>
+          {% else %}
+          <button class="btn btn-danger" type="submit">Unlike</button>
+          {% endif %}
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

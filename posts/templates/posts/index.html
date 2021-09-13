@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'posts/detail.css' %}" />
+    <link rel="stylesheet" href="{% static 'posts/index.css' %}" />
+{% endblock %}
+{% block title %}
+Events
+{% endblock  %}
+ 
+
+
+{% block content%}
+<section id="all_events">
+    <h1>Events</h1>
+    <br>
+    <ul>
+        {% for obj in qs %}
+            {% include "posts/includes/detail.html" %}
+        {% endfor %}
+    </ul>
+
+</section>
+{% endblock %}

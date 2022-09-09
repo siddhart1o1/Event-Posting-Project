@@ -1,6 +1,6 @@
 # Event-Posting-Project
+A site post event related information
 Add event, like/unlike events. main app is posts
-
 
 
 MAIN PAGE
